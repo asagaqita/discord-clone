@@ -5,9 +5,10 @@ const isProtectedRoute = createRouteMatcher([
   "/forum(.*)",
   "/",
 ]);
+const isPublicRoute = createRouteMatcher(["(.*)servers(.*)"]);
 
 export default clerkMiddleware((auth, req) => {
-  if (isProtectedRoute(req)) auth().protect();
+  if (isProtectedRoute(req) && !isPublicRoute(req)) auth().protect();
 });
 
 export const config = {
