@@ -24,9 +24,7 @@ export default function RootLayout({
             <SignedOut>
               <SignInButton />
             </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+            <SignedIn></SignedIn>
           </header>
           <ThemeProvider
             attribute="class"
