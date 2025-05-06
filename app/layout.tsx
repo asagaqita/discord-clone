@@ -9,6 +9,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
 import { Open_Sans } from "next/font/google";
+import { ModalProvider } from "@/components/providers/modal-provider";
 const font = Open_Sans({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -32,7 +33,10 @@ export default function RootLayout({
             enableSystem={false}
             storageKey="discord-theme"
           >
-            <main>{children}</main>
+            <main>
+              <ModalProvider/>
+              {children}
+            </main>
           </ThemeProvider>
         </body>
       </html>
